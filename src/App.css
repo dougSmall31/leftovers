@@ -1,3 +1,14 @@
 .App {
   text-align: center;
 }
+.Nav {
+  height: 60px;
+  width: 100vw;
+  background-color: #15959f;
+  display: flex;
+  flex-direction: row;
+}
+#home_button {
+}
+#nav_buttons {
+}

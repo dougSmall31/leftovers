@@ -1,16 +1,30 @@
 import React, { Component } from "react";
-import Nav from "./Nav";
+import axios from "../../node_modules/axios";
 import Post from "./Post";
-import Favorites from "./Favorites";
+
+const BASE_URL = "http://localhost:4000";
 
 class Dashboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      allPosts: []
+    };
+  }
+
+  componentDidMount() {
+    axios({
+      method: "GET",
+      url: BASE_URL + "/api/posts"
+    }).then(res => {
+      this.setState({ allPosts: res.data });
+    });
+  }
   render() {
     return (
       <div>
         Dashboard
-        <Nav />
-        <Post />
-        <Favorites />
+        <Post posts={this.state.allPosts} />
       </div>
     );
   }
