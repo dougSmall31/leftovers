@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "../../node_modules/axios";
 import Post from "./Post";
+import "../App.css";
 
 const BASE_URL = "http://localhost:4000";
 
@@ -22,9 +23,11 @@ class Dashboard extends Component {
   }
   render() {
     return (
-      <div>
-        Dashboard
-        <Post posts={this.state.allPosts} />
+      <div className="Dashboard">
+        <h1>All Posts</h1>
+        <div id="post_grid">
+          <Post posts={this.state.allPosts} />
+        </div>
       </div>
     );
   }

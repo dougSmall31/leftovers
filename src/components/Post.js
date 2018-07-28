@@ -1,13 +1,13 @@
 import React from "react";
+import "../App.css";
 
 const Post = props => {
   return (
-    <div>
-      <h1>All Posts</h1>
+    <div id="post_container">
       {props.posts.map(post => (
-        <div>
+        <div className="Post">
+          <img src={post.image} />
           <h2>{post.title}</h2>
-          {/* <image src={post.image}/> */}
           <ul>
             <li>category:{post.category}</li>
             {/* need to build logic for servings */}

@@ -7,8 +7,54 @@
   background-color: #15959f;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.Nav h2 {
 }
 #home_button {
+  margin: 2vw;
+}
+#title {
+  color: #c7402d;
 }
 #nav_buttons {
+  display: flex;
+  margin: 10px;
+}
+.icon {
+  display: flex;
+  margin: 2vw;
+}
+.Dashboard {
+  display: flex;
+  flex-direction: column;
+}
+#post_grid {
+}
+#post_container {
+  display: flex;
+  flex-direction: row;
+}
+.Post {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin: 8px;
+  padding: 4px;
+  border: 10px;
+  border-radius: 5%;
+  box-shadow: 0 6px 20px 0 #403d39;
+}
+.Post img {
+  height: 100px;
+  width: auto;
+}
+.Post ul {
+  list-style-type: none;
+}
+.Form {
+  display: flex;
+  flex-direction: column;
 }

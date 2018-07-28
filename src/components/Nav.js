@@ -10,24 +10,35 @@ const Nav = () => {
           <FontAwesomeIcon name="home" size="2x" style={{ color: "#EC9770" }} />
         </Link>
       </div>
+      <h2 id="title">Leftovers</h2>
       <div id="nav_buttons">
-        <Link to="/new">
-          <FontAwesomeIcon name="plus" size="2x" style={{ color: "#EC9770" }} />
-        </Link>
-        <Link to="favorites">
-          <FontAwesomeIcon
-            name="heart"
-            size="2x"
-            style={{ color: "#EC9770" }}
-          />
-        </Link>
-        <Link to="/login">
-          <FontAwesomeIcon
-            name="sign-out"
-            size="2x"
-            style={{ color: "#EC9770" }}
-          />
-        </Link>
+        <div className="icon">
+          <Link to="/new">
+            <FontAwesomeIcon
+              name="plus"
+              size="2x"
+              style={{ color: "#EC9770" }}
+            />
+          </Link>
+        </div>
+        <div className="icon">
+          <Link to="favorites">
+            <FontAwesomeIcon
+              name="heart"
+              size="2x"
+              style={{ color: "#EC9770" }}
+            />
+          </Link>
+        </div>
+        <div className="icon">
+          <Link to="/login">
+            <FontAwesomeIcon
+              name="sign-out"
+              size="2x"
+              style={{ color: "#EC9770" }}
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );
