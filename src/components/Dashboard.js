@@ -16,9 +16,17 @@ class Dashboard extends Component {
   componentDidMount() {
     axios({
       method: "GET",
-      url: BASE_URL + "/api/posts"
+      url: "/api/posts"
     }).then(res => {
       this.setState({ allPosts: res.data });
+    });
+
+    axios({
+      method: "GET",
+      url: "/api/user"
+    }).then(res => {
+      console.log("this is res", res);
+      //store this user to our redux store state
     });
   }
   render() {

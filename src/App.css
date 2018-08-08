@@ -1,22 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Delius|Port+Lligat+Slab");
+
 .App {
   text-align: center;
 }
+/* NAV */
 .Nav {
   height: 60px;
   width: 100vw;
-  background-color: #15959f;
+  background-color: #02c39a;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 6px 20px #403d39;
 }
 .Nav h2 {
+  font-family: "Delius", cursive;
+  font-size: 30px;
 }
-#home_button {
+.Nav a {
+  text-decoration: none;
   margin: 2vw;
 }
+
 #title {
-  color: #c7402d;
+  color: #05668d;
 }
 #nav_buttons {
   display: flex;
@@ -26,35 +34,95 @@
   display: flex;
   margin: 2vw;
 }
+/* DASHBOARD */
 .Dashboard {
   display: flex;
   flex-direction: column;
-}
-#post_grid {
+  font-family: "Port Lligat Slab", serif;
+  color: #05668d;
 }
 #post_container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+/* POST */
 .Post {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
-  margin: 8px;
+  max-width: 500px;
+  min-width: 100px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 10px;
   padding: 4px;
   border: 10px;
-  border-radius: 5%;
+  /* border-radius: 5%; */
   box-shadow: 0 6px 20px 0 #403d39;
+  font-family: "Port Lligat Slab", serif;
+  flex-wrap: wrap;
+}
+.Post p {
+  font-size: 20px;
+  margin: 6px;
 }
 .Post img {
-  height: 100px;
+  height: 20vh;
   width: auto;
+  object-fit: cover;
 }
-.Post ul {
-  list-style-type: none;
-}
+
+/* FORM */
 .Form {
   display: flex;
   flex-direction: column;
+  font-family: "Port Lligat Slab", serif;
 }
+.form_contents {
+  align-self: center;
+  margin: 20px;
+  padding: 10px;
+  border: 10px;
+  border-radius: 5%;
+  box-shadow: 0 6px 20px 0 #403d39;
+  background-color: #f1e4b3;
+  height: 75vh;
+  width: 50vw;
+}
+.Form input {
+  height: 20px;
+  align-self: center;
+  border-radius: 5%;
+  background-color: white;
+}
+.Form input:focus {
+  background-color: grey;
+  color: white;
+}
+.lrg_input:focus {
+  background-color: grey;
+  color: white;
+}
+.lrg_input {
+  background-color: white;
+}
+.lrg_input ::placeholder {
+  text-align: start;
+}
+
+/* media queries */
+/* @media (min-width: 770px) {
+  #post_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .Post {
+    max-width: 500px;
+    min-width: 100px;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+} */
