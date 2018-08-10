@@ -13,11 +13,19 @@ module.exports = {
   //need to add user id
   newPost: (req, res) => {
     const dbInstance = req.app.get("db");
-    const { title, category, description, servings, cost, image } = req.body;
-    console.log(req.session, "req.session");
+    const {
+      title,
+      category,
+      description,
+      servings,
+      cost,
+      image,
+      id
+    } = req.body;
+    console.log(req.body, "req body");
 
     dbInstance
-      .new_post([title, category, description, servings, cost, image])
+      .new_post([title, category, description, servings, cost, image, id])
       .then(() => res.sendStatus(200, "All good!"))
       .catch(err => {
         res.status(500).send({ errorMessage: "Server Error!" });

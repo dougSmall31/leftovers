@@ -21,7 +21,7 @@ const Nav = () => {
             <FontAwesomeIcon
               name="plus"
               size="2x"
-              style={{ color: "#05668d" }}
+              style={{ color: "#FF6D65" }}
             />
           </Link>
         </div>
@@ -30,7 +30,7 @@ const Nav = () => {
             <FontAwesomeIcon
               name="heart"
               size="2x"
-              style={{ color: "#05668d" }}
+              style={{ color: "#FF6D65" }}
             />
           </Link>
         </div>
@@ -39,7 +39,7 @@ const Nav = () => {
             <FontAwesomeIcon
               name="sign-out"
               size="2x"
-              style={{ color: "#05668d" }}
+              style={{ color: "#FF6D65" }}
             />
           </a>
         </div>

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "../../node_modules/axios";
 import Post from "./Post";
 import "../App.css";
+import { connect } from "react-redux";
+import { updateId } from "../ducks/reducer";
 
 const BASE_URL = "http://localhost:4000";
 
@@ -26,6 +28,7 @@ class Dashboard extends Component {
       url: "/api/user"
     }).then(res => {
       console.log("this is res", res);
+      this.props.updateId(res.data.id);
       //store this user to our redux store state
     });
   }
@@ -40,4 +43,7 @@ class Dashboard extends Component {
     );
   }
 }
-export default Dashboard;
+export default connect(
+  null,
+  { updateId }
+)(Dashboard);

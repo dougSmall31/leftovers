@@ -7,12 +7,14 @@
 .Nav {
   height: 60px;
   width: 100vw;
-  background-color: #02c39a;
+  /* background-color: #02c39a; */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 6px 20px #403d39;
+  box-shadow: 0 1px 0px #7f7f7f;
+  /* border-bottom-width: 5px;
+  border-color: #403d39; */
 }
 .Nav h2 {
   font-family: "Delius", cursive;
@@ -24,7 +26,7 @@
 }
 
 #title {
-  color: #05668d;
+  color: #ff6d65;
 }
 #nav_buttons {
   display: flex;
@@ -39,7 +41,7 @@
   display: flex;
   flex-direction: column;
   font-family: "Port Lligat Slab", serif;
-  color: #05668d;
+  color: #404040;
 }
 #post_container {
   display: flex;
@@ -81,48 +83,46 @@
 }
 .form_contents {
   align-self: center;
+
   margin: 20px;
   padding: 10px;
   border: 10px;
-  border-radius: 5%;
+  /* border-radius: 5%; */
   box-shadow: 0 6px 20px 0 #403d39;
-  background-color: #f1e4b3;
+  /* background-color: #f1e4b3; */
   height: 75vh;
   width: 50vw;
 }
-.Form input {
-  height: 20px;
-  align-self: center;
-  border-radius: 5%;
-  background-color: white;
+.Form h1 {
+  color: #404040;
 }
-.Form input:focus {
-  background-color: grey;
-  color: white;
-}
-.lrg_input:focus {
-  background-color: grey;
-  color: white;
-}
-.lrg_input {
-  background-color: white;
-}
-.lrg_input ::placeholder {
-  text-align: start;
+/* input boxes */
+
+.MuiInput-underline-21:after {
+  border-bottom-color: #404040 !important;
 }
 
-/* media queries */
-/* @media (min-width: 770px) {
-  #post_container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .Post {
-    max-width: 500px;
-    min-width: 100px;
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-} */
+label {
+  color: #404040 !important;
+  font-family: "Port Lligat Slab", serif !important;
+}
+
+.Form input {
+  font-family: "Port Lligat Slab", serif !important;
+  color: #404040;
+}
+.Form button {
+  background-color: #ff6d65;
+  color: #404040;
+  font-family: "Port Lligat Slab", serif !important;
+  text-decoration: none !important;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.MuiButton-contained-42:hover {
+  background-color: #404040;
+  color: #ff6d65;
+}
+.Form a {
+  text-decoration: none !important;
+}

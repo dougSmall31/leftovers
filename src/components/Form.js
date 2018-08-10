@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 import {
   updateTitle,
   updateCat,
   updateDesc,
   updateServ,
   updateCost,
-  updateImg
+  updateImg,
+  updateId
 } from "../ducks/reducer";
 
 const BASE_URL = "http://localhost:4000";
@@ -23,7 +26,8 @@ class Form extends Component {
       description: this.props.description || "",
       servings: this.props.servings || "",
       cost: this.props.cost || "",
-      image: this.props.image || ""
+      image: this.props.image || "",
+      id: this.props.id || ""
     };
   }
   titleHandler = value => {
@@ -46,10 +50,11 @@ class Form extends Component {
   };
   submitHandler = () => {
     const { title, category, description, servings, cost, image } = this.props;
+    console.log("this pup", { ...this.state, id: this.props.id });
     axios({
       method: "POST",
       url: BASE_URL + "/api/new",
-      data: this.state
+      data: { ...this.state, id: this.props.id }
     }).then(() => {
       this.props.history.push("/");
     });
@@ -61,8 +66,12 @@ class Form extends Component {
         <h1>New Post</h1>
         <div className="form_contents">
           <div id="post_container">
-            <h3>Title:</h3>
-            <input
+            {/* <h3>Title:</h3> */}
+            <TextField
+              className="form_input"
+              label="Title"
+              margin="normal"
+              fullWidth
               placeholder="50 Characters"
               title={this.state.title}
               onChange={e => this.titleHandler(e.target.value)}
@@ -70,8 +79,11 @@ class Form extends Component {
             />
           </div>
           <div id="post_container">
-            <h3>Category:</h3>
-            <input
+            <TextField
+              className="form_input"
+              label="Category"
+              margin="normal"
+              fullWidth
               placeholder="30 Characters"
               category={this.state.category}
               onChange={e => this.catHandler(e.target.value)}
@@ -79,16 +91,22 @@ class Form extends Component {
             />
           </div>
           <div id="post_container">
-            <h3>Servings Available:</h3>
-            <input
+            <TextField
+              className="form_input"
+              label="Servings Available"
+              margin="normal"
+              fullWidth
               servings={this.state.servings}
               onChange={e => this.servHandler(e.target.value)}
               value={this.state.servings}
             />
           </div>
           <div id="post_container">
-            <h3>Cost:</h3>
-            <input
+            <TextField
+              className="form_input"
+              label="Cost Per Serving"
+              margin="normal"
+              fullWidth
               cost={this.state.cost}
               onChange={e => this.costHandler(e.target.value)}
               value={this.state.cost}
@@ -96,8 +114,12 @@ class Form extends Component {
           </div>
           <div id="post_container">
             {/* amazon s3 functionallity */}
-            <h3>Upload an Image:</h3>
-            <input
+
+            <TextField
+              className="form_input"
+              label="Upload an Image"
+              margin="normal"
+              fullWidth
               placeholder="image url"
               image={this.state.image}
               onChange={e => this.imageHandler(e.target.value)}
@@ -105,11 +127,12 @@ class Form extends Component {
             />
           </div>
           <div id="post_container">
-            <h3>Brief Description:</h3>
-            <textarea
-              rows="10"
-              cols="30"
-              className="lrg_input"
+            <TextField
+              className="form_inputLrg"
+              label="Brief Description"
+              margin="normal"
+              fullWidth
+              multiline
               placeholder="200 characters"
               description={this.state.description}
               onChange={e => this.descHandler(e.target.value)}
@@ -118,7 +141,13 @@ class Form extends Component {
           </div>
           <br />
           <Link to="/">
-            <button onClick={this.submitHandler}>Submit</button>
+            <Button
+              variant="extendedFab"
+              // color="primary"
+              onClick={this.submitHandler}
+            >
+              Submit
+            </Button>
           </Link>
           {/* clear form button */}
         </div>
@@ -128,12 +157,21 @@ class Form extends Component {
 }
 
 function mapStateToProps(state) {
-  const { title, category, description, servings, cost, image } = state;
+  console.log("this is state", state);
+  const { title, category, description, servings, cost, image, id } = state;
 
-  return { title, category, description, servings, cost, image };
+  return { title, category, description, servings, cost, image, id };
 }
 
 export default connect(
   mapStateToProps,
-  { updateTitle, updateCat, updateDesc, updateServ, updateCost, updateImg }
+  {
+    updateTitle,
+    updateCat,
+    updateDesc,
+    updateServ,
+    updateCost,
+    updateImg,
+    updateId
+  }
 )(Form);

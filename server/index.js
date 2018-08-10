@@ -66,9 +66,19 @@ app.get(
     next();
   },
   (req, res) => {
-    // console.log(req.session, "1111req.session");
-
     if (req.user) {
+      console.log(req.user, "this is req.user");
+
+      const dbInstance = req.app.get("db");
+      const { name, email, picture, id } = req.user;
+
+      dbInstance.post_user([email]).then(res => {
+        console.log("this is res", res);
+        if (!res[0].id) {
+          dbInstance.post_user([name, email, picture, id]);
+        }
+      });
+
       res.redirect("http://localhost:3000/");
       // res.send({
       //   name: req.user.user_name,

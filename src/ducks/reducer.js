@@ -18,6 +18,7 @@ const UPDATE_DESC = "UPDATE_DESC";
 const UPDATE_SERV = "UPDATE_SERV";
 const UPDATE_COST = "UPDATE_COST";
 const UPDATE_IMG = "UPDATE_IMG";
+const UPDATE_ID = "UPDATE_ID";
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -38,6 +39,9 @@ function reducer(state = initialState, action) {
 
     case UPDATE_IMG:
       return Object.assign({}, state, { image: action.payload });
+
+    case UPDATE_ID:
+      return Object.assign({}, state, { id: action.payload });
 
     default:
       return state;
@@ -78,6 +82,12 @@ export function updateImg(image) {
   return {
     type: UPDATE_IMG,
     payload: image
+  };
+}
+export function updateId(id) {
+  return {
+    type: UPDATE_ID,
+    payload: id
   };
 }
 
