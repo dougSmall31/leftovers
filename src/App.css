@@ -4,6 +4,8 @@
   text-align: center;
 }
 /* NAV */
+
+/* switch from text to icon for buttons on mobile */
 .Nav {
   height: 60px;
   width: 100vw;
@@ -53,7 +55,7 @@
 .Post {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 400px;
   min-width: 100px;
   flex-grow: 1;
   flex-shrink: 1;
@@ -73,6 +75,12 @@
   height: 20vh;
   width: auto;
   object-fit: cover;
+}
+.post_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
 }
 
 /* FORM */
@@ -126,3 +134,5 @@ label {
 .Form a {
   text-decoration: none !important;
 }
+
+/* @media (min-width: 770px){} */

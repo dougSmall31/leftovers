@@ -5,7 +5,7 @@ import "../App.css";
 import { connect } from "react-redux";
 import { updateId } from "../ducks/reducer";
 
-const BASE_URL = "http://localhost:4000";
+// const BASE_URL = "http://localhost:4000";
 
 class Dashboard extends Component {
   constructor() {
@@ -32,12 +32,46 @@ class Dashboard extends Component {
       //store this user to our redux store state
     });
   }
+  handleAddFav = id => {
+    axios({
+      method: "POST",
+      url: "/api/favorites/" + id
+    })
+      .then(res => {
+        console.log(200, "favorite success");
+        alert("Added to Favorites List!");
+      })
+      .catch(error => {
+        console.log(error, "error");
+      });
+  };
+  handleDeletePost = id => {
+    axios({
+      method: "DELETE",
+      url: "/api/posts/" + id
+    })
+      .then(res => {
+        console.log(200, "delete success");
+        this.setState({ allPosts: res.data });
+      })
+      .catch(error => {
+        console.log(error, "error");
+        if (401) {
+          alert("Unauthorized!");
+        }
+      });
+  };
+
   render() {
     return (
       <div className="Dashboard">
         <h1>All Posts</h1>
         <div id="post_grid">
-          <Post posts={this.state.allPosts} />
+          <Post
+            posts={this.state.allPosts}
+            onDeletePost={this.handleDeletePost}
+            onAddFav={this.handleAddFav}
+          />
         </div>
       </div>
     );

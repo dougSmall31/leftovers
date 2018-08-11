@@ -93,7 +93,7 @@ class Form extends Component {
           <div id="post_container">
             <TextField
               className="form_input"
-              label="Servings Available"
+              label="Number of Servings Available"
               margin="normal"
               fullWidth
               servings={this.state.servings}

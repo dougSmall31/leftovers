@@ -10,7 +10,6 @@ module.exports = {
         console.log(err);
       });
   },
-  //need to add user id
   newPost: (req, res) => {
     const dbInstance = req.app.get("db");
     const {
@@ -26,6 +25,33 @@ module.exports = {
 
     dbInstance
       .new_post([title, category, description, servings, cost, image, id])
+      .then(() => res.sendStatus(200, "All good!"))
+      .catch(err => {
+        res.status(500).send({ errorMessage: "Server Error!" });
+        console.log(err);
+      });
+  },
+  deletePost: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+
+    if (req.user == null) {
+      return res.sendStatus(401);
+    }
+    dbInstance.delete_post([req.user.id, req.params.id]).then(deleteRes => {
+      if (deleteRes.length === 0) {
+        return res.sendStatus(401);
+      }
+      next();
+    });
+  },
+
+  //postFav
+  //select * from favorites where id===user_id then select * from left_posts where food_id === id
+  newFav: (req, res) => {
+    const dbInstance = req.app.get("db");
+
+    dbInstance
+      .post_fav([req.user.id, req.params.id])
       .then(() => res.sendStatus(200, "All good!"))
       .catch(err => {
         res.status(500).send({ errorMessage: "Server Error!" });

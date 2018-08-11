@@ -1,0 +1,1 @@
+INSERT INTO left_fav (user_id, food_id) VALUES ($1,$2)
