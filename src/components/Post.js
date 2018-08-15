@@ -10,31 +10,39 @@ const Post = props => {
     <div id="post_container">
       {props.posts.map(post => (
         <div className="Post">
-          <img src={post.image} />
-          <h2>{post.title}</h2>
-          <p>Category: {post.category}</p>
-          {/* need to build logic for servings */}
-          <p>Servings Available: {post.servings}</p>
-          <p>Price: ${post.cost_per}</p>
-          <p>Description: {post.description}</p>
-          {/* render userimg on posts */}
-          {/* <image {user.userImg}/> */}
-          <div className="post_buttons">
+          <img className="post_head" src={post.image} />
+          <div id="flex_row">
+            <img className="avatar" src={post.user_img} />
+            <h2>{post.title}</h2>
             <FontAwesomeIcon
               name="heart"
               size="2x"
-              style={{ color: "#7F7F7F" }}
+              style={{ color: "#ff6d65" }}
               onClick={() => {
                 console.log("button clicked!!!");
                 props.onAddFav(post.id);
               }}
             />
-            <Button
-              variant="extendedFab"
-              // color="primary"
-            >
-              Order
-            </Button>
+          </div>
+          {/* bold category */}
+          <p>
+            <strong>Category: </strong>
+            {post.category}
+          </p>
+          {/* need to build logic for servings */}
+          <p>
+            <strong>Servings Available: </strong>
+            {post.servings}
+          </p>
+          <p>
+            <strong>Price:</strong> ${post.cost_per}
+          </p>
+          <p>
+            <strong>Description: </strong>
+            {post.description}
+          </p>
+
+          <div className="post_buttons">
             <FontAwesomeIcon
               name="trash"
               size="2x"
@@ -43,10 +51,9 @@ const Post = props => {
                 props.onDeletePost(post.id);
               }}
             />
+            <Button variant="extendedFab">Order</Button>
           </div>
         </div>
-        //delete button only deletes if userid matches user
-        //favorite star button adds
       ))}
     </div>
   );

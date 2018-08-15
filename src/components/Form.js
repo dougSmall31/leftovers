@@ -4,15 +4,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import {
-  updateTitle,
-  updateCat,
-  updateDesc,
-  updateServ,
-  updateCost,
-  updateImg,
-  updateId
-} from "../ducks/reducer";
+import { updateId, updateUserImg } from "../ducks/reducer";
 
 const BASE_URL = "http://localhost:4000";
 
@@ -21,13 +13,14 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.title || "",
-      category: this.props.category || "",
-      description: this.props.description || "",
-      servings: this.props.servings || "",
-      cost: this.props.cost || "",
-      image: this.props.image || "",
-      id: this.props.id || ""
+      title: "",
+      category: "",
+      description: "",
+      servings: "",
+      cost: "",
+      image: "",
+      id: "",
+      userImg: ""
     };
   }
   titleHandler = value => {
@@ -50,11 +43,15 @@ class Form extends Component {
   };
   submitHandler = () => {
     const { title, category, description, servings, cost, image } = this.props;
-    console.log("this pup", { ...this.state, id: this.props.id });
+    console.log("this pup", {
+      ...this.state,
+      id: this.props.id,
+      userImg: this.props.userImg
+    });
     axios({
       method: "POST",
       url: BASE_URL + "/api/new",
-      data: { ...this.state, id: this.props.id }
+      data: { ...this.state, id: this.props.id, userImg: this.props.userImg }
     }).then(() => {
       this.props.history.push("/");
     });
@@ -105,6 +102,7 @@ class Form extends Component {
             <TextField
               className="form_input"
               label="Cost Per Serving"
+              placeholder="DONT PUT A DOLLAR SIGN!!!!!"
               margin="normal"
               fullWidth
               cost={this.state.cost}
@@ -158,20 +156,15 @@ class Form extends Component {
 
 function mapStateToProps(state) {
   console.log("this is state", state);
-  const { title, category, description, servings, cost, image, id } = state;
+  const { id, userImg } = state;
 
-  return { title, category, description, servings, cost, image, id };
+  return { id, userImg };
 }
 
 export default connect(
   mapStateToProps,
   {
-    updateTitle,
-    updateCat,
-    updateDesc,
-    updateServ,
-    updateCost,
-    updateImg,
-    updateId
+    updateId,
+    updateUserImg
   }
 )(Form);

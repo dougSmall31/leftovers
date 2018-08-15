@@ -19,12 +19,22 @@ module.exports = {
       servings,
       cost,
       image,
-      id
+      id,
+      userImg
     } = req.body;
     console.log(req.body, "req body");
 
     dbInstance
-      .new_post([title, category, description, servings, cost, image, id])
+      .new_post([
+        title,
+        category,
+        description,
+        servings,
+        cost,
+        image,
+        id,
+        userImg
+      ])
       .then(() => res.sendStatus(200, "All good!"))
       .catch(err => {
         res.status(500).send({ errorMessage: "Server Error!" });

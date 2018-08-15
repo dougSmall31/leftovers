@@ -3,6 +3,19 @@
 .App {
   text-align: center;
 }
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+#flex_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px;
+}
 /* NAV */
 
 /* switch from text to icon for buttons on mobile */
@@ -21,6 +34,11 @@
 .Nav h2 {
   font-family: "Delius", cursive;
   font-size: 30px;
+}
+.Nav h3 {
+  font-family: "Port Lligat Slab", serif;
+  color: #404040;
+  font-size: 20px;
 }
 .Nav a {
   text-decoration: none;
@@ -66,12 +84,17 @@
   box-shadow: 0 6px 20px 0 #403d39;
   font-family: "Port Lligat Slab", serif;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+.Post h2 {
+  margin: 1px;
+  font-size: 25px;
 }
 .Post p {
   font-size: 20px;
-  margin: 6px;
+  margin: 3px;
 }
-.Post img {
+.post_head {
   height: 20vh;
   width: auto;
   object-fit: cover;
@@ -79,8 +102,12 @@
 .post_buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px;
+}
+.Post button {
+  background-color: #ff6d65;
 }
 
 /* FORM */
@@ -104,6 +131,17 @@
 .Form h1 {
   color: #404040;
 }
+/* .Form h3 {
+  margin: 0px;
+  padding: 0px;
+}
+#row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+} */
 /* input boxes */
 
 .MuiInput-underline-21:after {

@@ -1,1 +1,1 @@
--- SELECT * FROM left_posts WHERE user_id = $
+-- SELECT * FROM left_fav WHERE user_id = $

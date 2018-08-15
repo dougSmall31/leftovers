@@ -80,10 +80,6 @@ app.get(
       });
 
       res.redirect("http://localhost:3000/");
-      // res.send({
-      //   name: req.user.user_name,
-      //   email: req.user.email
-      // });
     } else {
       res.sendStatus(401);
     }

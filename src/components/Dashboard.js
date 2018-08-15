@@ -3,7 +3,7 @@ import axios from "../../node_modules/axios";
 import Post from "./Post";
 import "../App.css";
 import { connect } from "react-redux";
-import { updateId } from "../ducks/reducer";
+import { updateId, updateUserImg } from "../ducks/reducer";
 
 // const BASE_URL = "http://localhost:4000";
 
@@ -27,8 +27,9 @@ class Dashboard extends Component {
       method: "GET",
       url: "/api/user"
     }).then(res => {
-      console.log("this is res", res);
+      console.log("this is res dash", res);
       this.props.updateId(res.data.id);
+      this.props.updateUserImg(res.data.picture);
       //store this user to our redux store state
     });
   }
@@ -65,7 +66,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="Dashboard">
-        <h1>All Posts</h1>
+        <h1>All Meals</h1>
         <div id="post_grid">
           <Post
             posts={this.state.allPosts}
@@ -79,5 +80,5 @@ class Dashboard extends Component {
 }
 export default connect(
   null,
-  { updateId }
+  { updateId, updateUserImg }
 )(Dashboard);
