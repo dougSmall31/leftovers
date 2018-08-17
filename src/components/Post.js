@@ -2,10 +2,12 @@ import React from "react";
 import "../App.css";
 import FontAwesomeIcon from "react-fontawesome";
 import Button from "@material-ui/core/Button";
+import { updateOrders } from "../ducks/reducer";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Post = props => {
   console.log(props, "this is props on Post");
-
   return (
     <div id="post_container">
       {props.posts.map(post => (
@@ -51,7 +53,17 @@ const Post = props => {
                 props.onDeletePost(post.id);
               }}
             />
-            <Button variant="extendedFab">Order</Button>
+            <Link to="cart">
+              <Button
+                variant="extendedFab"
+                onClick={() => {
+                  props.updateOrders(post);
+                  // onAddToCart(post.id);
+                }}
+              >
+                Order
+              </Button>
+            </Link>
           </div>
         </div>
       ))}
@@ -59,4 +71,7 @@ const Post = props => {
   );
 };
 
-export default Post;
+export default connect(
+  null, //mapStateToProps - I want parts of my redux state on this component's props
+  { updateOrders } //mapDispatchToProps - I want some action creators (functions that i defined below my reducer) to be on props, and dispatch actions
+)(Post);

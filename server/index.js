@@ -94,7 +94,7 @@ app.delete("/api/posts/:id", controller.deletePost, controller.getAll);
 
 //favorite endpoints
 app.post("/api/favorites/:id", controller.newFav);
-// app.get("/api/favorites/:id", controller.getFav);
+app.get("/api/favorites/", controller.getFav);
 
 //user
 app.get("/api/user", (req, res) => {

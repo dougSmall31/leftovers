@@ -67,5 +67,17 @@ module.exports = {
         res.status(500).send({ errorMessage: "Server Error!" });
         console.log(err);
       });
+  },
+
+  getFav: (req, res) => {
+    const dbInstance = req.app.get("db");
+
+    dbInstance
+      .get_fav()
+      .then(post => res.status(200).send(post))
+      .catch(err => {
+        res.status(500).send({ errorMessage: "get request error!" });
+        console.log(err);
+      });
   }
 };

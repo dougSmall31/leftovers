@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FontAwesomeIcon from "react-fontawesome";
-import { updateId, updateUserImg, updateName } from "../ducks/reducer";
+import { connect } from "react-redux";
+import SimpleMenu from "./SimpleMenu";
 
-const Nav = () => {
+const Nav = props => {
   //will need to have state of logged in user
   //conditional redirect to login if user isn't logged in on Favorite and Form
   return (
@@ -11,6 +12,7 @@ const Nav = () => {
       <Link to="/">
         <h2 id="title">leftOvers</h2>
       </Link>
+
       {/* user profile image*/}
       <div id="nav_buttons">
         <div className="icon">
@@ -33,6 +35,11 @@ const Nav = () => {
             /> */}
           </Link>
         </div>
+        <div className="icon">
+          <Link to="cart">
+            <h3>My Order</h3>
+          </Link>
+        </div>
         {/* if logged in show sign-out icon else show login icon */}
         <div className="icon">
           <a href="http://localhost:4000/login">
@@ -43,6 +50,8 @@ const Nav = () => {
               style={{ color: "#7F7F7F" }}
             /> */}
           </a>
+          <img className="avatar" id="nav_avatar" src={props.userImg} />
+          <div>{/* <SimpleMenu /> */}</div>
         </div>
       </div>
     </div>
@@ -50,5 +59,10 @@ const Nav = () => {
 };
 
 //map state to props, userdata
+function mapStateToProps(state) {
+  const { username, userImg } = state;
 
-export default Nav;
+  return { username, userImg };
+}
+
+export default connect(mapStateToProps)(Nav);

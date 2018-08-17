@@ -5,8 +5,6 @@ import "../App.css";
 import { connect } from "react-redux";
 import { updateId, updateUserImg } from "../ducks/reducer";
 
-// const BASE_URL = "http://localhost:4000";
-
 class Dashboard extends Component {
   constructor() {
     super();

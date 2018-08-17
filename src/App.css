@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Delius|Port+Lligat+Slab");
+@import url("https://fonts.googleapis.com/css?family=Delius|Port+Lligat+Slab|Source+Sans+Pro");
 
 .App {
   text-align: center;
@@ -31,14 +31,17 @@
   /* border-bottom-width: 5px;
   border-color: #403d39; */
 }
+#nav_avatar {
+  align-self: center;
+}
 .Nav h2 {
   font-family: "Delius", cursive;
   font-size: 30px;
 }
 .Nav h3 {
-  font-family: "Port Lligat Slab", serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: #404040;
-  font-size: 20px;
+  font-size: 25px;
 }
 .Nav a {
   text-decoration: none;
@@ -56,11 +59,15 @@
   display: flex;
   margin: 2vw;
 }
+.MuiButtonBase-root-25 {
+  justify-content: center;
+  align-self: flex-end !important;
+}
 /* DASHBOARD */
 .Dashboard {
   display: flex;
   flex-direction: column;
-  font-family: "Port Lligat Slab", serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: #404040;
 }
 #post_container {
@@ -82,7 +89,7 @@
   border: 10px;
   /* border-radius: 5%; */
   box-shadow: 0 6px 20px 0 #403d39;
-  font-family: "Port Lligat Slab", serif;
+  font-family: "Source Sans Pro", sans-serif;
   flex-wrap: wrap;
   justify-content: space-between;
 }
