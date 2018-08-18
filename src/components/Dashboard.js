@@ -9,7 +9,8 @@ class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
-      allPosts: []
+      allPosts: [],
+      favPosts: []
     };
   }
 
@@ -30,17 +31,36 @@ class Dashboard extends Component {
       this.props.updateUserImg(res.data.picture);
       //store this user to our redux store state
     });
+
+    this.loadFavorites();
   }
+
+  loadFavorites = () => {
+    //load favorites
+    axios({
+      method: "GET",
+      url: "/api/favs"
+    }).then(res => {
+      console.log(res.data, "fav res.data");
+      this.setState({ favPosts: res.data });
+    });
+  };
+
   handleAddFav = id => {
+    const newFavs = [...this.state.favPosts, { id }];
+    this.setState({ favPosts: newFavs });
+
     axios({
       method: "POST",
       url: "/api/favorites/" + id
     })
       .then(res => {
         console.log(200, "favorite success");
-        alert("Added to Favorites List!");
+        this.loadFavorites();
+        // alert("Added to Favorites List!");
       })
       .catch(error => {
+        this.loadFavorites();
         console.log(error, "error");
       });
   };
@@ -62,6 +82,7 @@ class Dashboard extends Component {
   };
 
   render() {
+    console.log("XXXXXX", this.state.favPosts);
     return (
       <div className="Dashboard">
         <h1>All Meals</h1>
@@ -70,6 +91,7 @@ class Dashboard extends Component {
             posts={this.state.allPosts}
             onDeletePost={this.handleDeletePost}
             onAddFav={this.handleAddFav}
+            favPosts={this.state.favPosts}
           />
         </div>
       </div>

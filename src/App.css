@@ -8,6 +8,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  position: initial;
 }
 #flex_row {
   display: flex;
@@ -31,7 +32,28 @@
   /* border-bottom-width: 5px;
   border-color: #403d39; */
 }
-#nav_avatar {
+
+a {
+  text-decoration: none !important;
+}
+li {
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-size: 20px !important;
+  font-weight: bolder !important;
+  color: #404040 !important;
+}
+.simpleMenu {
+  font-family: "Source Sans Pro", sans-serif !important;
+  margin-right: 20px;
+}
+.MuiButton-root-1 {
+  font-family: "Source Sans Pro", sans-serif !important;
+  font-size: 25px !important;
+  font-weight: bold !important;
+  color: #404040 !important;
+}
+
+#nav_avatar_mobile {
   align-self: center;
 }
 .Nav h2 {
@@ -52,7 +74,7 @@
   color: #ff6d65;
 }
 #nav_buttons {
-  display: flex;
+  display: none;
   margin: 10px;
 }
 .icon {
@@ -115,13 +137,14 @@
 }
 .Post button {
   background-color: #ff6d65;
+  font-size: 20px !important;
 }
 
 /* FORM */
 .Form {
   display: flex;
   flex-direction: column;
-  font-family: "Port Lligat Slab", serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .form_contents {
   align-self: center;
@@ -138,17 +161,6 @@
 .Form h1 {
   color: #404040;
 }
-/* .Form h3 {
-  margin: 0px;
-  padding: 0px;
-}
-#row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 0px;
-} */
 /* input boxes */
 
 .MuiInput-underline-21:after {
@@ -157,17 +169,17 @@
 
 label {
   color: #404040 !important;
-  font-family: "Port Lligat Slab", serif !important;
+  font-family: "Source Sans Pro", sans-serif !important;
 }
 
 .Form input {
-  font-family: "Port Lligat Slab", serif !important;
+  font-family: "Source Sans Pro", sans-serif !important;
   color: #404040;
 }
 .Form button {
   background-color: #ff6d65;
   color: #404040;
-  font-family: "Port Lligat Slab", serif !important;
+  font-family: "Source Sans Pro", sans-serif !important;
   text-decoration: none !important;
   font-weight: bolder;
   font-size: 20px;
@@ -179,5 +191,27 @@ label {
 .Form a {
   text-decoration: none !important;
 }
+/* FAVORITES */
 
-/* @media (min-width: 770px){} */
+.Favorites h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #404040;
+}
+
+@media (min-width: 856px) {
+  .simpleMenu {
+    display: none !important;
+  }
+  #nav_buttons {
+    display: flex;
+  }
+  .avatar {
+    display: flex;
+  }
+  #nav_avatar_mobile {
+    display: none;
+  }
+  #nav_avatar {
+    align-self: center;
+  }
+}

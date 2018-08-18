@@ -73,11 +73,11 @@ module.exports = {
     const dbInstance = req.app.get("db");
 
     dbInstance
-      .get_fav()
-      .then(post => res.status(200).send(post))
+      .get_fav([req.user.id])
+      .then(post => console.log(111111, post) || res.status(200).send(post))
       .catch(err => {
-        res.status(500).send({ errorMessage: "get request error!" });
         console.log(err);
+        res.status(500).send({ errorMessage: "get request error!" });
       });
   }
 };

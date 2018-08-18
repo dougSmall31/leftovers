@@ -16,17 +16,29 @@ const Post = props => {
           <div id="flex_row">
             <img className="avatar" src={post.user_img} />
             <h2>{post.title}</h2>
-            <FontAwesomeIcon
-              name="heart"
-              size="2x"
-              style={{ color: "#ff6d65" }}
-              onClick={() => {
-                console.log("button clicked!!!");
-                props.onAddFav(post.id);
-              }}
-            />
+            {props.favPosts.find(item => item.id === post.id) ? (
+              <FontAwesomeIcon
+                name="heart"
+                size="2x"
+                style={{ color: "#ff6d65", cursor: "pointer" }}
+                onClick={() => {
+                  console.log("button clicked!!!");
+                  props.onAddFav(post.id);
+                }}
+              />
+            ) : (
+              <FontAwesomeIcon
+                name="heart"
+                size="2x"
+                inverse
+                style={{ color: "#7F7F7F", cursor: "pointer" }}
+                onClick={() => {
+                  console.log("button clicked!!!");
+                  props.onAddFav(post.id);
+                }}
+              />
+            )}
           </div>
-          {/* bold category */}
           <p>
             <strong>Category: </strong>
             {post.category}
@@ -48,7 +60,7 @@ const Post = props => {
             <FontAwesomeIcon
               name="trash"
               size="2x"
-              style={{ color: "#7F7F7F" }}
+              style={{ color: "#7F7F7F", cursor: "pointer" }}
               onClick={() => {
                 props.onDeletePost(post.id);
               }}
@@ -58,7 +70,6 @@ const Post = props => {
                 variant="extendedFab"
                 onClick={() => {
                   props.updateOrders(post);
-                  // onAddToCart(post.id);
                 }}
               >
                 Order

@@ -11,20 +11,22 @@ class Favorites extends Component {
     };
   }
 
-  componentDidMount(id) {
+  componentDidMount() {
     axios({
       method: "GET",
-      url: "/api/favorites" + id
+      url: "/api/favs"
     }).then(res => {
+      console.log(res.data, "fav res.data");
       this.setState({ favPosts: res.data });
     });
   }
   render() {
     return (
-      <div>
-        <div>Favorites</div>
+      <div className="Favorites">
+        {/* <div>Favorites</div> */}
         <div>
-          <Post posts={this.state.favPosts} />
+          <h1>My Favorite Meals</h1>
+          <Post posts={this.state.favPosts} favPosts={this.state.favPosts} />
         </div>
       </div>
     );
