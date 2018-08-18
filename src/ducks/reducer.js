@@ -3,6 +3,7 @@ const initialState = {
   id: "",
   username: "",
   userImg: "",
+  //cart
   myOrders: []
 };
 
@@ -10,6 +11,7 @@ const UPDATE_ID = "UPDATE_ID";
 const UPDATE_NAME = "UPDATE_NAME";
 const UPDATE_USERIMG = "UPDATE_USERIMG";
 const UPDATE_ORDERS = "UPDATE_ORDERS";
+const SUBMIT_ORDER = "SUBMIT_ORDER";
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -22,6 +24,10 @@ function reducer(state = initialState, action) {
     case UPDATE_ORDERS:
       return Object.assign({}, state, {
         myOrders: [...state.myOrders, action.payload]
+      });
+    case SUBMIT_ORDER:
+      return Object.assign({}, state, {
+        myOrders: []
       });
 
     default:
@@ -50,6 +56,12 @@ export function updateUserImg(userImg) {
 export function updateOrders(myOrders) {
   return {
     type: UPDATE_ORDERS,
+    payload: myOrders
+  };
+}
+export function submitOrder(myOrders) {
+  return {
+    type: SUBMIT_ORDER,
     payload: myOrders
   };
 }

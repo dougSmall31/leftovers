@@ -55,8 +55,6 @@ module.exports = {
     });
   },
 
-  //postFav
-  //select * from favorites where id===user_id then select * from left_posts where food_id === id
   newFav: (req, res) => {
     const dbInstance = req.app.get("db");
 

@@ -19,18 +19,14 @@
 }
 /* NAV */
 
-/* switch from text to icon for buttons on mobile */
 .Nav {
   height: 60px;
   width: 100vw;
-  /* background-color: #02c39a; */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 1px 0px #7f7f7f;
-  /* border-bottom-width: 5px;
-  border-color: #403d39; */
 }
 
 a {
@@ -109,7 +105,6 @@ li {
   margin: 10px;
   padding: 4px;
   border: 10px;
-  /* border-radius: 5%; */
   box-shadow: 0 6px 20px 0 #403d39;
   font-family: "Source Sans Pro", sans-serif;
   flex-wrap: wrap;
@@ -148,20 +143,18 @@ li {
 }
 .form_contents {
   align-self: center;
-
   margin: 20px;
   padding: 10px;
   border: 10px;
-  /* border-radius: 5%; */
   box-shadow: 0 6px 20px 0 #403d39;
-  /* background-color: #f1e4b3; */
   height: 75vh;
   width: 50vw;
 }
 .Form h1 {
   color: #404040;
+  font-family: "Source Sans Pro", sans-serif;
 }
-/* input boxes */
+/* Form input boxes */
 
 .MuiInput-underline-21:after {
   border-bottom-color: #404040 !important;
@@ -182,7 +175,7 @@ label {
   font-family: "Source Sans Pro", sans-serif !important;
   text-decoration: none !important;
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 20px !important;
 }
 .MuiButton-contained-42:hover {
   background-color: #404040;
@@ -197,7 +190,52 @@ label {
   font-family: "Source Sans Pro", sans-serif;
   color: #404040;
 }
-
+/* CART */
+.Cart {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.Cart h1 {
+  color: #404040;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.Cart button {
+  background-color: #ff6d65;
+  font-size: 20px !important;
+}
+.cart_container {
+  align-self: center;
+  margin: 20px;
+  padding: 10px;
+  border: 10px;
+  box-shadow: 0 6px 20px 0 #403d39;
+  width: 50vw;
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+}
+.Cart img {
+  height: 20vh;
+  width: auto;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.cart_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10px;
+}
+#cart_row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+/* Media Queries */
 @media (min-width: 856px) {
   .simpleMenu {
     display: none !important;
@@ -213,5 +251,8 @@ label {
   }
   #nav_avatar {
     align-self: center;
+  }
+  #cart_row {
+    flex-direction: row;
   }
 }
