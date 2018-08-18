@@ -4,7 +4,9 @@ const initialState = {
   username: "",
   userImg: "",
   //cart
-  myOrders: []
+  myOrders: [],
+  //favorites
+  favPosts: []
 };
 
 const UPDATE_ID = "UPDATE_ID";
@@ -12,6 +14,8 @@ const UPDATE_NAME = "UPDATE_NAME";
 const UPDATE_USERIMG = "UPDATE_USERIMG";
 const UPDATE_ORDERS = "UPDATE_ORDERS";
 const SUBMIT_ORDER = "SUBMIT_ORDER";
+const ADD_FAV = "ADD_FAV";
+const DELETE_FAV = "DELETE_FAV";
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -28,6 +32,10 @@ function reducer(state = initialState, action) {
     case SUBMIT_ORDER:
       return Object.assign({}, state, {
         myOrders: []
+      });
+    case ADD_FAV:
+      return Object.assign({}, state, {
+        favPosts: [...state.favPosts, action.payload]
       });
 
     default:
@@ -63,6 +71,12 @@ export function submitOrder(myOrders) {
   return {
     type: SUBMIT_ORDER,
     payload: myOrders
+  };
+}
+export function addFav(favPosts) {
+  return {
+    type: ADD_FAV,
+    payload: favPosts
   };
 }
 

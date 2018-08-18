@@ -3,7 +3,7 @@ import axios from "../../node_modules/axios";
 import Post from "./Post";
 import "../App.css";
 import { connect } from "react-redux";
-import { updateId, updateUserImg } from "../ducks/reducer";
+import { updateId, updateUserImg, addFav } from "../ducks/reducer";
 
 class Dashboard extends Component {
   constructor() {
@@ -80,9 +80,27 @@ class Dashboard extends Component {
         }
       });
   };
+  handleDeleteFav = id => {
+    console.log("handleDeleteFav");
+
+    axios({
+      method: "DELETE",
+      url: "/api/favorites/" + id
+    })
+      .then(res => {
+        console.log(".then in deletefav");
+
+        console.log(200, "delete success");
+        this.setState({ favPosts: res.data });
+      })
+      .catch(error => {
+        console.log(error, "error");
+      });
+
+    this.loadFavorites();
+  };
 
   render() {
-    console.log("XXXXXX", this.state.favPosts);
     return (
       <div className="Dashboard">
         <h1>All Meals</h1>
@@ -92,6 +110,7 @@ class Dashboard extends Component {
             onDeletePost={this.handleDeletePost}
             onAddFav={this.handleAddFav}
             favPosts={this.state.favPosts}
+            onDeleteFav={this.handleDeleteFav}
           />
         </div>
       </div>
@@ -100,5 +119,5 @@ class Dashboard extends Component {
 }
 export default connect(
   null,
-  { updateId, updateUserImg }
+  { updateId, updateUserImg, addFav }
 )(Dashboard);

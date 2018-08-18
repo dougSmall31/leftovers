@@ -77,5 +77,16 @@ module.exports = {
         console.log(err);
         res.status(500).send({ errorMessage: "get request error!" });
       });
+  },
+
+  deleteFav: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+
+    dbInstance.delete_fav([req.params.id]).then(deleteRes => {
+      if (deleteRes.length === 0) {
+        return res.sendStatus(401);
+      }
+      next();
+    });
   }
 };

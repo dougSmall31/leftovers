@@ -22,15 +22,15 @@ const Post = props => {
                 size="2x"
                 style={{ color: "#ff6d65", cursor: "pointer" }}
                 onClick={() => {
-                  console.log("button clicked!!!");
-                  props.onAddFav(post.id);
+                  console.log("button clicked!!!", post.id, props);
+
+                  props.onDeleteFav(post.id);
                 }}
               />
             ) : (
               <FontAwesomeIcon
                 name="heart"
                 size="2x"
-                inverse
                 style={{ color: "#7F7F7F", cursor: "pointer" }}
                 onClick={() => {
                   console.log("button clicked!!!");
@@ -65,11 +65,20 @@ const Post = props => {
                 props.onDeletePost(post.id);
               }}
             />
+            {/* <button
+              onClick={() => {
+                console.log("button clicked!!!");
+                props.onDeleteFav(post.id);
+              }}
+            >
+              onDeleteFav
+            </button> */}
             <Link to="cart">
               <Button
                 variant="extendedFab"
                 onClick={() => {
                   props.updateOrders(post);
+                  // alert("Added " + post.title + " to order!");
                 }}
               >
                 Order
