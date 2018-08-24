@@ -12,42 +12,42 @@ class Cart extends Component {
     return (
       <div className="Cart">
         <h1>My Order</h1>
-        <div className="cart_container">
+        <div className="cart_flex">
           {this.props.myOrders.map(order => (
-            <div>
+            <div className="cart_container">
               <h2>{order.title}</h2>
               <div id="cart_row">
                 <img src={order.image} />
                 <div className="cart_list">
-                  <p>
+                  <p style={{ marginTop: "30px" }}>
                     <strong>Category: </strong>
                     {order.category}
                   </p>
                   <p>
                     <strong>Servings: </strong>1{/* {order.servings} */}
                   </p>
-                  <p>
+                  <p style={{ marginBottom: "30px" }}>
                     <strong>Price: </strong>${order.cost_per}
                   </p>
                 </div>
               </div>
             </div>
           ))}
-          <div id="flex_row">
-            <Link to="/">
-              <Button variant="extendedFab">Keep Shopping</Button>
-            </Link>
-            <Link to="/">
-              <Button
-                variant="extendedFab"
-                onClick={() => {
-                  this.props.submitOrder();
-                }}
-              >
-                Submit Order
-              </Button>
-            </Link>
-          </div>
+        </div>
+        <div className="cart_buttons">
+          <Link to="/">
+            <Button variant="extendedFab">Keep Shopping</Button>
+          </Link>
+          <Link to="/">
+            <Button
+              variant="extendedFab"
+              onClick={() => {
+                this.props.submitOrder();
+              }}
+            >
+              Submit Order
+            </Button>
+          </Link>
         </div>
       </div>
     );

@@ -28,7 +28,7 @@ app.use(passport.session());
 passport.use(strategy);
 
 passport.serializeUser(function(user, done) {
-  console.log("serializeUser", user);
+  // console.log("serializeUser", user);
 
   done(null, {
     id: user.id,
@@ -67,13 +67,13 @@ app.get(
   },
   (req, res) => {
     if (req.user) {
-      console.log(req.user, "this is req.user");
+      // console.log(req.user, "this is req.user");
 
       const dbInstance = req.app.get("db");
       const { name, email, picture, id } = req.user;
 
       dbInstance.post_user([email]).then(res => {
-        console.log("this is res", res);
+        // console.log("this is res", res);
         if (!res[0].id) {
           dbInstance.post_user([name, email, picture, id]);
         }
@@ -99,7 +99,6 @@ app.delete("/api/favorites/:id", controller.deleteFav, controller.getFav);
 
 //user
 app.get("/api/user", (req, res) => {
-  // console.log("XXXXXreq.session", req.session.user);
   res.send(req.session.user);
 });
 

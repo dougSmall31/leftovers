@@ -8,7 +8,7 @@ const Nav = props => {
   //conditional redirect to login if user isn't logged in on Favorite and Form
   return (
     <div className="Nav">
-      <Link to="/">
+      <Link to="/landing">
         <h2 id="title">leftOvers</h2>
       </Link>
       <img className="avatar" id="nav_avatar_mobile" src={props.userImg} />
@@ -34,6 +34,7 @@ const Nav = props => {
           <a href="http://localhost:4000/login">
             <h3>Login</h3>
           </a>
+
           <img className="avatar" id="nav_avatar" src={props.userImg} />
         </div>
       </div>

@@ -3,6 +3,12 @@
 .App {
   text-align: center;
 }
+#no_margin {
+  margin: 0px;
+}
+/* .auth0-lock-header-logo {
+  src: url(http://clipart-library.com/images/rTnrBLdGc.png) !important;
+} */
 
 .avatar {
   width: 50px;
@@ -59,11 +65,18 @@ li {
 .Nav h3 {
   font-family: "Source Sans Pro", sans-serif;
   color: #404040;
-  font-size: 25px;
+  font-size: 18px;
+}
+
+.Nav a :hover {
+  border-bottom: #7f7f7f;
+  border-bottom-width: 2px !important;
+  border-bottom-style: solid !important;
 }
 .Nav a {
   text-decoration: none;
   margin: 2vw;
+  margin-bottom: 30px;
 }
 
 #title {
@@ -71,11 +84,11 @@ li {
 }
 #nav_buttons {
   display: none;
-  margin: 10px;
+  margin-right: 25px;
 }
 .icon {
   display: flex;
-  margin: 2vw;
+  margin: 0px;
 }
 .MuiButtonBase-root-25 {
   justify-content: center;
@@ -94,11 +107,12 @@ li {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 /* POST */
 .Post {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 300px;
   min-width: 100px;
   flex-grow: 1;
   flex-shrink: 1;
@@ -110,19 +124,28 @@ li {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.Post .avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  position: initial;
+}
+
 .Post h2 {
   margin: 1px;
-  font-size: 25px;
+  font-size: 20px;
 }
 .Post p {
-  font-size: 20px;
+  font-size: 15px;
   margin: 3px;
 }
+
 .post_head {
   height: 20vh;
   width: auto;
   object-fit: cover;
 }
+
 .post_buttons {
   display: flex;
   flex-direction: row;
@@ -132,7 +155,7 @@ li {
 }
 .Post button {
   background-color: #ff6d65;
-  font-size: 20px !important;
+  font-size: 15px !important;
 }
 
 /* FORM */
@@ -146,8 +169,8 @@ li {
   margin: 20px;
   padding: 10px;
   border: 10px;
-  box-shadow: 0 6px 20px 0 #403d39;
-  height: 75vh;
+
+  height: 525px;
   width: 50vw;
 }
 .Form h1 {
@@ -174,7 +197,7 @@ label {
   color: #404040;
   font-family: "Source Sans Pro", sans-serif !important;
   text-decoration: none !important;
-  font-weight: bolder;
+  /* font-weight: bolder; */
   font-size: 20px !important;
 }
 .MuiButton-contained-42:hover {
@@ -196,6 +219,7 @@ label {
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .Cart h1 {
   color: #404040;
@@ -203,7 +227,24 @@ label {
 }
 .Cart button {
   background-color: #ff6d65;
-  font-size: 20px !important;
+  font-size: 15px !important;
+}
+.Cart h2 {
+  margin: 5px;
+}
+.cart_buttons {
+  display: flex;
+  width: 50vw;
+  justify-content: space-between;
+  margin-left: 25vw;
+}
+.cart_flex {
+  align-self: center;
+  margin: 20px;
+  padding: 10px;
+  justify-content: space-between;
+  flex-direction: column;
+  align-content: center;
 }
 .cart_container {
   align-self: center;
@@ -219,7 +260,7 @@ label {
   justify-content: space-around;
 }
 .Cart img {
-  height: 20vh;
+  height: 35vh;
   width: auto;
   object-fit: cover;
   margin-right: 10px;
@@ -227,13 +268,34 @@ label {
 .cart_list {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-left: 10px;
 }
+.cart_list p {
+  font-size: 15px;
+}
+
 #cart_row {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  justify-content: space-evenly;
+}
+/* LANDING */
+.hero_banner {
+  position: relative;
+  text-align: center;
+}
+video {
+  width: 100vw;
+  height: auto;
+}
+.hero_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
 }
 /* Media Queries */
 @media (min-width: 856px) {
@@ -242,6 +304,7 @@ label {
   }
   #nav_buttons {
     display: flex;
+    justify-content: space-between;
   }
   .avatar {
     display: flex;

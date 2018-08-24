@@ -22,7 +22,7 @@ module.exports = {
       id,
       userImg
     } = req.body;
-    console.log(req.body, "req body");
+    // console.log(req.body, "req body");
 
     dbInstance
       .new_post([
