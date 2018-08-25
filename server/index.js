@@ -4,7 +4,7 @@ const massive = require("massive");
 const path = require("path");
 const cors = require("cors");
 const controller = require("./controller");
-require("dotenv").config();
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 const passport = require("passport");
 const strategy = require(`${__dirname}/strategy.js`);
 const session = require("express-session");
@@ -56,7 +56,7 @@ app.get(
     //success as 'http://localhost:3000/'???
     successRedirect: "/me",
     failureRedirect: "/login",
-    failureFlash: true
+    failureFlash: false
   })
 );
 app.get(
@@ -79,7 +79,10 @@ app.get(
         }
       });
 
-      res.redirect("http://localhost:3000/");
+      res.redirect(
+        "/"
+        // "http://localhost:3000/"
+      );
     } else {
       res.sendStatus(401);
     }
@@ -101,6 +104,9 @@ app.delete("/api/favorites/:id", controller.deleteFav, controller.getFav);
 app.get("/api/user", (req, res) => {
   res.send(req.session.user);
 });
+
+//build
+app.get("/*", express.static(path.join(__dirname, "..", "build")));
 
 //server port
 const port = process.env.PORT || 4000;

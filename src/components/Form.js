@@ -6,8 +6,6 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { updateId, updateUserImg } from "../ducks/reducer";
 
-const BASE_URL = "http://localhost:4000";
-
 //need to add user id to state from auth
 class Form extends Component {
   constructor(props) {
@@ -42,7 +40,7 @@ class Form extends Component {
     this.setState({ image: value });
   };
   submitHandler = () => {
-    const { title, category, description, servings, cost, image } = this.props;
+    // const { title, category, description, servings, cost, image } = this.props;
     console.log("this pup", {
       ...this.state,
       id: this.props.id,
@@ -50,7 +48,7 @@ class Form extends Component {
     });
     axios({
       method: "POST",
-      url: BASE_URL + "/api/new",
+      url: "/api/new",
       data: { ...this.state, id: this.props.id, userImg: this.props.userImg }
     }).then(() => {
       this.props.history.push("/");

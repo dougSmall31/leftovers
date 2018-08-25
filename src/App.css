@@ -282,6 +282,11 @@ label {
   justify-content: space-evenly;
 }
 /* LANDING */
+.Landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .hero_banner {
   position: relative;
   text-align: center;
@@ -291,6 +296,41 @@ video {
   height: auto;
 }
 .hero_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.landing_shelf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.shelf {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50vw;
+  margin: 20px 25%;
+}
+.shelf img {
+  display: flex;
+  height: 30vh;
+  width: auto;
+  object-fit: cover;
+}
+.footer_img {
+  /* margin-top: 60px; */
+  width: 100%;
+  object-fit: cover;
+  height: 40vh;
+}
+.footer {
+  position: relative;
+  text-align: center;
+}
+.footer_content {
   position: absolute;
   top: 50%;
   left: 50%;

@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import SimpleMenu from "./SimpleMenu";
 
+const baseLoginUrl =
+  process.env.NODE_ENV !== "production" ? "http://localhost:4000" : "";
+
 const Nav = props => {
   //will need to have state of logged in user
   //conditional redirect to login if user isn't logged in on Favorite and Form
@@ -31,7 +34,7 @@ const Nav = props => {
         </div>
         {/* if logged in show sign-out icon else show login icon */}
         <div className="icon">
-          <a href="http://localhost:4000/login">
+          <a href={baseLoginUrl + "/login"}>
             <h3>Login</h3>
           </a>
 
